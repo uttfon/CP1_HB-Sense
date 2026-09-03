@@ -1,12 +1,13 @@
 # Entender a situação atual
 
+import random
 from calculos import calcular_maior, calcular_media
 from kit_dados import modulos, leituras_ambientais, tripulacao, consumo_modulos, historico_apollo_superficie
 
 print("==== LEITURAS DE DADOS ====")
 
 for modulo in modulos:
-    print(modulo["nome"], "- Capacidade:", modulo["capacidade"], "- Ocupação:", modulo["ocupacao"])
+    print(modulo["nome"], "- Capacidade:", modulo["capacidade"], "- Ocupação:", modulo["ocupacao"], "- Energia diponível:", modulo["energia_kw"], "KW")
 
 for leitura in leituras_ambientais:
     print("Ciclo", leitura["ciclo"], "- Porcentagem de O2:", leitura["o2_pct"], "%")
@@ -19,3 +20,10 @@ for consumo in consumo_modulos:
 
 for historico in historico_apollo_superficie:
     print("Missão:", historico["missao"], "- Horas de superfície:", historico["horas_superficie"])
+
+
+palavras = ["ALERTA DE MANUTENÇÃO NO PAINEL DE ENERGIA DO MÓDULO MÉDICO", "ALERTA DE BAIXA EFICIÊNCIA DE TRABALHO", "ALERTA DE BAIXO NÍVEL DE ÁGUA NO MÓDULO HB-06"]
+uma_palavra = random.choice(palavras)
+print("================")
+print(uma_palavra)
+print("================")
