@@ -9,7 +9,7 @@ opcao = 0
 
 while opcao != 4:
 
-    palavras = ["ALERTA DE MANUTENÇÃO NO MÓDULO MÉDICO", "ALERTA DE BAIXA EFICIÊNCIA DE TRABALHO", "ALERTA DE BAIXO NÍVEL DE ÁGUA NO MÓDULO HB-06"]
+    palavras = ["ALERTA DE MANUTENÇÃO NO MÓDULO MÉDICO", "ALERTA DE BAIXA EFICIÊNCIA DE TRABALHO", "ALERTA DE ALTO CONSUMO E BAIXO NÍVEL DE ÁGUA NO MÓDULO HB-06"]
     uma_palavra = random.choice(palavras)
     print()
     print(uma_palavra)
@@ -36,9 +36,11 @@ while opcao != 4:
     if turno.upper() == "A":
         print()
         print("==== TURNO A ====")
+
     elif turno.upper() == "B":
         print()
         print("==== TURNO B ====")
+        
     else:
         print("Digie um turno válido A ou B")
 
@@ -46,12 +48,27 @@ while opcao != 4:
         print()
         resposta = input("PRECISAMOS EXPANDIR FUNCIONÁRIOS? (s/n)")
         print()
+        print("==== EXPANSÃO DE FUNCIONÁRIOS ====")
+        print()
         if resposta.lower() == "s":
             for modulo in modulos:
                 if modulo["ocupacao"] +1 < modulo["capacidade"]:
-                    print(modulo["nome"], "- Capaz de contratar mais funcionários", "- Capacidade:", modulo["capacidade"], "- Ocupação:", modulo["ocupacao"])
+                    print(modulo["nome"])
+                    print("Capacidade:", modulo["capacidade"], "- Ocupação:", modulo["ocupacao"])
+                    print("STATUS: APTO A EXPANSÃO")
+                    print()
+
+                elif modulo["capacidade"] +1 - modulo["ocupacao"] == 1:
+                    print(modulo["nome"])
+                    print("Capacidade:", modulo["capacidade"], "- Ocupação:", modulo["ocupacao"])
+                    print("STATUS: ATENÇÃO")
+                    print()
+
                 else:
-                    print(modulo["nome"], "- Capacidade crítica, não contratar", "- Capacidade:", modulo["capacidade"], "- Ocupação:", modulo["ocupacao"])
+                    print(modulo["nome"])
+                    print("Capacidade:", modulo["capacidade"], "- Ocupação:", modulo["ocupacao"])
+                    print("STATUS: CRÍTICO")
+                    print()
 
     elif opcao == 2:
         print()
